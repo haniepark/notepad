@@ -1,0 +1,131 @@
+body {
+	margin: 0;
+	background-color: rgba(245,245,245, 1);
+	font-family: Helvetica, Arial, sans-serif;
+	color:#605951;
+}
+
+header {
+	width: 100%;
+	background-color: rgba(251, 238, 194, 0.5);
+	
+}
+
+h2 {
+	font-size: 42px;
+	color: #333;
+	padding: 10px 0 0 50px;
+	margin: 28px 0 0 0;
+}
+
+header p {
+	padding: 0 0 15px 50px;
+	margin-top:10px; 
+	line-height: 26px;
+}
+
+#container {
+	margin: 30px 5%;
+}
+
+form {
+	display: inline-block;
+}
+
+#todo {
+	height: 150px;
+	width: 230px;
+	margin: 10px;
+	padding: 10px 0 0 10px;
+	overflow-y: auto;
+	background-color: transparent;
+	-webkit-border: 1px solid #C1B398;
+	-moz-border: 1px solid #C1B398;
+	border: 1px solid #C1B398;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	outline-style: none;
+	font-size: 14px;
+	color: black;
+}
+
+#todo, #button {
+	float: left;
+}
+
+#button {
+	height: 20px;
+	width: 50px;
+	text-align: center;
+	background-color: #ACCEC0;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-border: 2px solid #61A6AB;
+	-moz-border: 2px solid #61A6AB;
+	border: 2px solid #61A6AB;
+	cursor: pointer;
+	color: #605951;
+	padding-top: 3px;
+	margin: 70px 0 0 15px;
+}
+
+#note {
+	height: 150px;
+}
+
+.notepad {
+	height: 100%;
+	width: 18%;
+	resize: none;
+	border: 1px solid transparent;
+	overflow: auto; 
+	background-color: grey;
+	padding: 20px;
+	outline-color: white;
+	margin: 10px 10px 0 10px;;
+	font-size: 15px;
+	line-height: 22px;
+	float: left;
+}
+
+.notepad:last-child {
+	margin-bottom: 100px;
+}
+
+/*notepad colouring*/
+
+.notepad:nth-child(6n+1) {
+	background-color: rgba(176, 144, 132, 0.7);
+}
+.notepad:nth-child(6n+2) {
+	background-color: rgba(246, 188, 173, 0.7);
+}
+.notepad:nth-child(6n+3) {
+	background-color: rgba(220, 189, 177, 0.7);
+}
+.notepad:nth-child(6n+4) {
+	background-color: rgba(198, 223, 194, 0.7);
+}
+.notepad:nth-child(6n+5) {
+	background-color: rgba(242, 223, 202, 0.7);
+}
+.notepad:nth-child(6n) {
+	background-color: rgba(354, 220, 186, 0.7);
+}
+
+/*notepad border styling*/
+.notepad:nth-child(2n+1) {
+	-webkit-border-radius: 15px 0 15px 0;
+	-moz-border-radius: 15px 0 15px 0;
+	border-radius: 15px 0 15px 0;
+}
+.notepad:nth-child(2n) {
+	-webkit-border-radius: 0 15px 0 15px;
+	-moz-border-radius: 0 15px 0 15px;
+	border-radius: 0 15px 0 15px;
+}
+
+
+
