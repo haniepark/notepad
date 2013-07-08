@@ -1,11 +1,49 @@
+function showDate() {
+		 var monthNames = [ "January", "February", "March", "April", "May", "June",
+	  						 "July", "August", "September", "October", "November", "December" ];
+	  	 var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+	  	 var newDate = new Date();
+	  	 newDate.setDate(newDate.getDate());    
+	  	 $('.date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
+}
+
+function addNote() {
+	var toDo = $('textarea[name=toDoItem]').val().replace(/\n/g, '<br/>');	
+	 	$('#note').append('<div class="notepad">' + '<div class="date"></div>' + '<span class="close">x</span>' + '<br/>' + toDo + '</div>');
+}
+
+
 $(document).ready(function(){
-  	
+
+	if (localStorage.length != 0){ // if the localStorage is not empty at initial time
+		var num = localStorage.length; // get the localStorage lenth
+		for (var i = 0; i < num; i++){// loop through the localStorage
+			if(localStorage.getItem(i)) {// if the localStorage is not null
+			   	 $('#note').html(localStorage.getItem(i));// display
+			}
+		}
+	}else{ // the localStorage is empty
+		var num = 0;
+	}
+
+  	showDate();
   // click to save notes
-  	$("#button").click(function(){
-	   var toDo = $('textarea[name=toDoItem]').val().replace(/\n/g, '<br/>');
-	   	$('#note').append('<div class="notepad">' + toDo + '</div>');
+  	$(".add").click(function(){
+	    
+	    addNote();
+		showDate();	
+	   
+	   	$('#toDoForm')[0].reset();
+	   	 
+	   	 var value = $('#note').html();
+	   	 var key =  localStorage.length;
+	   	 localStorage.setItem(key, value);
+
+	  return false;
+		   	
    });
    
+    
   // press enter to save notes
    	$(document).on('keypress', '#todo', function(event){
    	
@@ -16,35 +54,45 @@ $(document).ready(function(){
    	//		keycode = event.which;
    	//  }
       var keycode = (event.keyCode ? event.keyCode : event.which);
-      	if(keycode == '13'){
-      var toDo = $('textarea[name=toDoItem]').val().replace(/\n/g, '<br/>');
-     	$('#note').append('<div class="notepad">' + toDo + '</div>');
-	  }
+
+      if(event.ctrlKey && keycode == 13){ 
+	 	
+	 	addNote();
+	 	showDate();
+	 		
+	   $('#toDoForm')[0].reset();
+	   	 
+	   	var value = $('#note').html();
+	   	var key =  localStorage.length;
+	   	localStorage.setItem(key, value);
+
+	  return false;	 
+	  }	  
    });
       
-   // sorting sticky notes
-   $("#note").sortable();
    
-   //double click to remove sticky notes
-   $(document).on('dblclick', '.notepad', function(){
-        $(this).remove();
-    });
-    
-/* not working yet---   $(document).on('keypress', '#todo', function(event){
-	  var keycode = (event.keyCode ? event.keyCode : event.which);
-	  	if(keycode == '27') {
-		  	$(this).remove('.notepad');
-	  	} 
-    });*/
-    
-    //date on textarea
-   var monthNames = [ "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December" ];
-   var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
-
-   var newDate = new Date();
-   newDate.setDate(newDate.getDate());    
-  	 $('#todo').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
+   //click to remove sticky note
+   $(document).on('click', 'span', function(){
+        $(this).closest('.notepad').remove();
+        
+   });
+   
+     //clear all local storage
+   $('.delete').click( function() {
+	   window.localStorage.clear();
+	   location.reload();
 	 
-  	
+	 return false;
+	});
+	
+	$("#dialog").hide();
+	$("header").on('click', "#inst", function(){
+		$("#dialog").dialog({ 
+			position: 'top', 
+			top: 100,
+			height: 300,
+			width: 400
+		 });
+	});
+	
 });

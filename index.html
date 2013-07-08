@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+	<head>
+		<title>Notepad ToDo</title>
+
+<!-- META elements-->
+        
+        <meta name="description" content="Notepad web app by hanie park">
+        <meta name="keywords" content="notepad , notepad local storage, notepad cache manifest" />
+		<meta name="viewport" content="width=device-width">
+		
+<!-- SHORTCUT ICON -->
+
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="img/favicon.ico" type="image/x-icon">		
+		
+		
+<!-- CSS
+  ================================================== -->
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+	   	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+	   	<link rel="stylesheet" href="css/stylesheet.css" />
+        
+ <!-- jQuery
+  ================================================== -->	       
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery-1.9.0.js"/></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"/></script>
+        <script type="text/javascript" src="js/script.js"/></script>
+        
+	</head>
+
+<!-- MAIN CONTENT
+  ================================================== -->
+
+	<body>
+		
+		<div id="logo"></div>
+		<header>
+			
+			<h2>Notepad ToDo</h2>
+			<p>Easily keeping up with your daily tasks!<br>
+				Click <a href="#instruction" data-toggle="modal">here</a> for the instruction :)
+			</p>
+			
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://haniepark.byethost4.com/" data-via="haniepark" data-lang="en" data-count="horizontal">Tweet</a></h2>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+			
+			
+			
+			<div id="instruction" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div class="modal-header">
+			    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+			    <h3 id="myModalLabel"> instruction</h3>
+			  </div>
+			  <div class="modal-body">
+			    <ul>
+				    <li>Save</li>
+				    <p>Click <span class="add">add note</span> or <span class="markup">ctrl</span> + <span class="markup">enter</span> to save</p>
+				    <li>Delete</li>
+				    <p>Click <span class="delete">delete all</span> or click <span class="close">x</span> at top right corner of each sticky note</p>
+			    </ul>
+			  </div>
+			</div>
+			
+			
+		</header>
+
+
+		<div id="container">
+			<form name="toDoForm" id="toDoForm">
+				<textarea id="todo" type="text" name="toDoItem" placeholder="what do you have to do today?"></textarea>
+				<div id="btn-wrap">
+					<div class="button add">add note</div> <div class="button delete">delete all</div>
+				</div>
+			</form>
+
+			<div id="note"></div>
+		</div>
+	
+	</body>
+</html>

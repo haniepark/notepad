@@ -1,44 +1,65 @@
+@font-face {
+    font-family: "Ubuntu-R";
+    src: url("../font/ubuntu/Ubuntu-R.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
 	margin: 0;
 	background-color: rgba(245,245,245, 1);
-	font-family: Helvetica, Arial, sans-serif;
-	color:#605951;
+	font-family: "Ubuntu-R", "Helvetica Neue", Arial, sans-serif;
+	color:#333;
 }
 
 header {
 	width: 100%;
 	background-color: rgba(251, 238, 194, 0.5);
-	
+	margin-top: -20px;
 }
 
+#logo {
+	background: url('../img/logo.png');
+	height: 85.5px;
+	width: 80px;
+	display: inline-block;
+	margin: 0 0 -105px 30px;	
+}
+#logo:hover {
+	background-position: 0 -85.5px;
+}
+header h2, p {
+	display: inline-block;
+}
 h2 {
 	font-size: 42px;
 	color: #333;
-	padding: 10px 0 0 50px;
-	margin: 28px 0 0 0;
+	padding: 0 0 0 90px;
+	margin: 55px 0 50px 35px;
 }
-
 header p {
-	padding: 0 0 15px 50px;
+	padding: 0 0 15px 25px;
 	margin-top:10px; 
 	line-height: 26px;
+	font-size: 16px;
 }
-
 #container {
 	margin: 30px 5%;
 }
-
 form {
 	display: inline-block;
 }
-
+#toDoForm {
+	width: 90%;
+	margin: 0 auto;
+}
 #todo {
 	height: 150px;
-	width: 230px;
+	width: 100%;
 	margin: 10px;
 	padding: 10px 0 0 10px;
 	overflow-y: auto;
-	background-color: transparent;
+	background-color: white;
 	-webkit-border: 1px solid #C1B398;
 	-moz-border: 1px solid #C1B398;
 	border: 1px solid #C1B398;
@@ -48,29 +69,39 @@ form {
 	outline-style: none;
 	font-size: 14px;
 	color: black;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
 }
-
-#todo, #button {
-	float: left;
+#btn-wrap {
+	float: right;
+	margin-right: -30px;
 }
-
-#button {
+.button {
 	height: 20px;
-	width: 50px;
+	width: 80px;
 	text-align: center;
-	background-color: #ACCEC0;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+	cursor: pointer;
+	padding-top: 3px;
+	margin: 5px 15px 15px 15px;
+	display: inline-block;
+}
+.add {
+	background-color: #ACCEC0;
 	-webkit-border: 2px solid #61A6AB;
 	-moz-border: 2px solid #61A6AB;
 	border: 2px solid #61A6AB;
-	cursor: pointer;
-	color: #605951;
-	padding-top: 3px;
-	margin: 70px 0 0 15px;
 }
-
+.delete {
+	background-color: #D83A47;
+	-webkit-border: 2px solid #B6554C;
+	-moz-border: 2px solid #B6554C;
+	border: 2px solid #B6554C;
+	color: #fcfbe3;
+}
 #note {
 	height: 150px;
 }
@@ -89,10 +120,45 @@ form {
 	line-height: 22px;
 	float: left;
 }
-
+.notepad:hover {
+	-webkit-box-shadow: 2px 3px 1px gray;
+	-moz-box-shadow: 2px 3px 1px gray;
+	box-shadow: 2px 3px 1px gray;
+}
 .notepad:last-child {
 	margin-bottom: 100px;
 }
+
+.close {
+	float: right;
+	margin-top: -29px;
+	cursor: pointer;
+}
+.date {
+	color: rgba(68,68,68, 0.7);
+}
+
+/*modal*/
+
+#instruction p {
+	font-size: 14px;
+}
+.markup, .add, .delete {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;	
+	padding: 3px 6px
+}
+.markup{
+	background-color: #dadada;
+}
+
+#instruction p .close {
+	float: none;
+	margin-top: 0;
+	cursor: none;
+} 
+
 
 /*notepad colouring*/
 
@@ -127,5 +193,59 @@ form {
 	border-radius: 0 15px 0 15px;
 }
 
+/*twitter API*/
 
+iframe {
+	margin: 0 0 -5px -50px;
+	display: inline-block;
+}
+
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+	body {
+		padding: 0;
+	}
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+	body {
+		padding: 0;
+	}
+	header h2 {
+		margin: 60px 0 20px 30px;
+	}
+	header p {
+		padding: 0 0 0 60px;
+	}
+	.notepad {
+		width: 34%;
+		margin: 10px 10px 0 14px;
+	}
+}
+/* cellphone view */
+@media (max-width: 480px) {
+	body {
+		padding: 0;
+	}
+	#logo {
+		margin:0 0 -111px 30px;
+	}
+	header h2 {
+		margin: 48px 0 20px 30px;
+	}
+	header p {
+		padding: 0 0 0 50px;
+	}
+	iframe {
+		margin: 0 0 20px 50px;
+	}
+	.button {
+		margin: 5px 5px 15px 15px;
+	}
+	.notepad {
+		width: 34%;
+		margin: 15px 5px 0 5px;
+	}
+}
 

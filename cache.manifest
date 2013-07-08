@@ -1,0 +1,12 @@
+CACHE MANIFEST
+
+index.html
+css/stylesheet.css
+js/script.js
+
+# Resources that require the user to be online.
+NETWORK:
+*
+
+FALLBACK:
+
